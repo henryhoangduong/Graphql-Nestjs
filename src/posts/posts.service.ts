@@ -4,6 +4,6 @@ import { Post } from './post.entity';
 @Injectable()
 export class PostsService {
   findAll(): Post[] {
-    return [{ id: 1, title: 'hello', content: 'sample'  }];
+    return [{ id: 1, title: 'hello', content: 'sample' }];
   }
 }
