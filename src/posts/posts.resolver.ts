@@ -12,7 +12,10 @@ export class PostsResolver {
   post() {
     return this.postsService.findAll();
   }
-
+  @Query((returns) => Post)
+  findPost(@Args('id') id: number) {
+    return this.postsService.findProductById(id);
+  }
   @Mutation((returns) => Post)
   createPost(@Args('posts') post: CreatePostInput) {
     return this.postsService.createPost(post);

@@ -15,6 +15,13 @@ export class PostsService {
     console.log(posts);
     return posts;
   }
+  async findProductById(id: number) {
+    return this.postRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
   async createPost(post: CreatePostInput): Promise<Post> {
     const newPost = this.postRepository.create(post);
     return this.postRepository.save(newPost);
