@@ -8,6 +8,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { Post } from './posts/post.entity';
+import { AuthorsModule } from './authors/authors.module';
 @Module({
   imports: [
     PostsModule,
@@ -23,6 +24,7 @@ import { Post } from './posts/post.entity';
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    AuthorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

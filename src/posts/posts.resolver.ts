@@ -8,15 +8,15 @@ import { CreatePostInput } from './dto/create-post.input';
 export class PostsResolver {
   constructor(private postsService: PostsService) {}
 
-  @Query((returns) => [Post])
+  @Query(() => [Post])
   post() {
     return this.postsService.findAll();
   }
-  @Query((returns) => Post)
+  @Query(() => Post)
   findPost(@Args('id') id: number) {
     return this.postsService.findProductById(id);
   }
-  @Mutation((returns) => Post)
+  @Mutation(() => Post)
   createPost(@Args('posts') post: CreatePostInput) {
     return this.postsService.createPost(post);
   }
