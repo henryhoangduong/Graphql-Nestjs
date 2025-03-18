@@ -9,13 +9,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { Post } from './posts/post.entity';
 import { AuthorsModule } from './authors/authors.module';
+import { Author } from './authors/entities/author.entity';
 @Module({
   imports: [
     PostsModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'database.sqlite',
-      entities: [Post],
+      entities: [Post, Author],
       synchronize: true,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
